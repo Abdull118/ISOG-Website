@@ -1,0 +1,123 @@
+
+
+.navBar{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    align-items: center;
+    height: 50px;
+}
+.navBarBackground{
+    background-color: black;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    height: 50px;
+    opacity: 0.3;
+}
+
+.contactNavBar{
+    display: flex;
+    padding-right: 20px;
+}
+
+.contactNavBar > img{
+    padding-right: 10px;
+}
+
+.contactNavBar a {
+    text-decoration: none;
+    color: white;
+}
+.prayerBtn{
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(10, 96, 48);
+    /* background-color: #CDAC2F; */
+    transition: background-color 0.3s ease;
+    color: white;
+    display: flex;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.prayerBtn img{
+    width: 15px;
+    padding-left: 5px;
+}
+
+.prayerBtn:hover{
+    background-color: #CDAC2F;
+
+}
+
+.navBarHeader{
+    background: rgba(0,0,0,.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:0 10px;
+}
+
+.navBarHeader img{
+    width: 45px;
+    height: 40px;
+}
+
+.navBarHeader ul{
+    list-style: none;
+    color: white;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.navBarHeader ul li{
+    cursor: pointer;
+}
+
+.prayerModal{
+    position: absolute;
+    margin: 5px -80px;
+    background-color: white;
+    padding: 5px;
+    border: 0.2px solid black;
+    border-radius: 5px;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+table *{
+    font-weight: 300;
+}
+
+table strong{
+    font-weight: 500;
+}
+
+tbody img{
+    width: 20px;
+}
+
+tr>th:nth-child(2),
+tr>th:nth-child(3){
+    padding-right: 20px
+}
+
+.mosqueName{
+    color: white;
+    font-family: Arabic Font;
+    font-size: 40px;
+}
+
+.mosqueLogo{
+    display: flex;
+}

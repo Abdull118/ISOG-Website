@@ -1,0 +1,251 @@
+@keyframes fadeInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  100% {
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+.bismillah, .isogHeader{
+    font-family: Arabic Font;
+    font-size: 80px;
+    color: white;
+    text-align: center;
+    margin-top: 60px;
+    opacity: 0; 
+    animation: fadeInFromBottom 1s ease forwards; 
+}
+
+.row1Btns, .row2Btns{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+    animation: fadeInFromBottom 1s ease forwards; 
+}
+
+
+
+.row1Btns *, .row2Btns *{
+    border: 0;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: rgb(10, 96, 48);
+    transition: background-color 0.3s ease;
+    color: white;
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.row1Btns *:hover, .row2Btns *:hover{
+    background-color: #CDAC2F;
+}
+
+.prayerTimesContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: -100px;
+ 
+    animation: fadeInFromBottom 1s ease forwards; 
+}
+
+.prayerTimesTable{
+    background-color: white;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 40px 40px 20px 40px;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.prayerHeader{
+    display: flex;
+    gap: 4px;
+    font-weight: 700;
+}
+
+.prayerTitle{
+    color: rgb(10, 96, 48);
+}
+
+.prayerTitle2{
+   color: rgb(10, 96, 48);
+}
+
+thead strong{
+    color: rgb(10, 96, 48);
+}
+strong{
+    color: #CDAC2F;
+}
+
+.divider1 {
+    position: relative;
+    /* Ensure there's enough space for the border */
+    padding: 1.75px; /* Adjust this value to match the desired border thickness */
+    z-index: 2;
+    margin: 8px 0;
+}
+  
+.divider1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Create a gradient border */
+    background: linear-gradient(to right, #CDAC2F, white);
+    /* Simulate the border */
+    z-index: -1;
+    border-radius: inherit; /* Optional for rounded corners */
+}
+
+.divider{
+    width: 100%;
+    border: 1px solid gray;
+}
+
+.prayerTableHomePage tbody tr {
+    border-bottom: 1px solid lightGray; 
+  }
+  
+.prayerTableHomePage {
+    border-collapse: collapse;
+}
+  
+
+.prayerTableHomePage th, .prayerTableHomePage td {
+    padding: 8px;
+ }
+
+.prayerTableHomePage tbody tr:last-child {
+   border-bottom: none;
+}
+
+.locationInfo{
+    font-size: 17px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.hijri{
+    color: #CDAC2F;
+}
+
+.georgian{
+    color: rgb(10, 96, 48);
+}
+
+.ramadanContainer{
+    width: 100%;
+    border: 10px solid white;
+    background: linear-gradient(106deg, rgb(131 89 118), rgb(131 89 118) 26%, rgb(0, 78, 192)), linear-gradient(106deg, rgba(71, 229, 238, 0), rgb(0, 78, 192) 28%, rgb(0, 78, 192) 74%);
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.ramadanContainer >div:first-child {
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.fastingContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 300px;
+    background-color: rgba(255,255,255,0.2);
+    width: 80%;
+    margin: 0 auto;
+    padding: 60px;
+}
+
+.counterContainer{
+    border: 4px solid white;
+    width: 600px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+    font-weight: 900;
+    background: rgba(0,0,0, 0.1);
+}
+
+.suhoorContainer, .iftarContainer{
+    border: 5px solid white;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.suhoorContainer>div:first-child, .iftarContainer>div:first-child{
+    padding-bottom: 10px;
+}
+
+.athanAndImage{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    
+}
+
+.athanAndImage img{
+    width: 40px;
+}
+
+.footerContainer{
+    margin: 10px auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    border-radius: 15px; 
+    box-shadow: 0 0 100px rgba(0,0,0,.3);
+}
+
+.contactContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contactHome{
+    display: flex;
+    align-items: center;
+}
+.contactHome a, .contactHome div{
+    text-decoration: none;
+    color: black;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed lightGray;
+}
+
+
+
+
+
+
+  
+
+
+
