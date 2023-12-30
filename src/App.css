@@ -2,14 +2,7 @@
   font-family: 'Arabic Font';
   src: local('Arslan'), url('./fonts/\(A\)\ Arslan\ Wessam\ A\ \(A\)\ Arslan\ Wessam\ A.ttf') format('truetype');
 }
-.background{
-  background-image: url('./images/masjidNight.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 1000px;
-  
-}
 
-.background::-webkit-scrollbar {
-  display: none;
+body{
+  font-family: 'Times New Roman', Times, serif;
 }

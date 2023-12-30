@@ -7,7 +7,7 @@ import store from './store/store';
 
 function App() {
   return (
-    <div className='background'>
+    <>
     <Provider store={store}>
       <NavBar />
       <Router>
@@ -16,7 +16,7 @@ function App() {
         </Routes>
       </Router>
     </Provider>
-    </div>
+    </>
   );
 }
 

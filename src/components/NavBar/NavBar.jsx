@@ -1,49 +1,79 @@
 import {useState, useEffect} from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import {
-    setFajrAthan,
-    setShuruq,
-    setDhurAthan,
-    setAsrAthan,
-    setMaghribAthan,
-    setIshaAthan,
-    fetchAthanTimes,
-  } from '../../store/slices/prayerTimesSlice';
-import { fetchPrayerTimes } from '../../store/slices/iqamahTimesSlice';
 import mail from '../../images/mail.svg'
 import phone from '../../images/phone.svg'
-import chevronDown from '../../images/chevronDown.svg'
-import sun from '../../images/sun.svg'
-import sunrise from '../../images/sunrise.svg'
-import sunset from '../../images/sunset.svg'
-import moon from '../../images/moon.svg'
-import masjidNight from '../../images/masjidNight.png'
 import isog from '../../images/isog2.png'
 import './NavBar.css'
 
 const NavBar = () => {
-    const [prayerTimingsModal, setPrayerTimingsModal] = useState(false)
 
-    const dispatch = useDispatch();
-    const { fajrAthan, shuruq, dhurAthan, asrAthan, maghribAthan, ishaAthan } = useSelector((state) => state.prayerTimes);
-    const iqamahTimes = useSelector((state) => state.iqamahTimes);
-    const prayerTimes = useSelector((state) => state.prayerTimes);
+    const [currentHijriDay, setCurrentHijriDay] = useState()
+    const [currentHijriMonth, setCurrentHijriMonth] = useState()
+    const [currentHijriYear, setCurrentHijriYear] = useState()
+    const [currentDate, setCurrentDate] = useState()
+    const [ramadanCounter, setRamadanCounter] = useState()
+  
+    const getDate = () => {
+        var today = new Date(),
+        date = (today.getMonth() + 1)  + '-' + today.getDate() + '-' + today.getFullYear();
+        setCurrentDate(date)
+      };
 
+      
+    const getHijriDate = async () => {
+        try {
+         const response = await fetch(`https://api.aladhan.com/v1/gToH?=${currentDate}`);
+         const json = await response.json();
+         setCurrentHijriDay(json.data.hijri.day)
+         setCurrentHijriMonth(json.data.hijri.month.ar)
+         setCurrentHijriYear(json.data.hijri.year)
+       } catch (error) {
+         console.log(error)
+       }
+     }
 
-    const handlePrayerTimingsModal = async() =>{
-        setPrayerTimingsModal(!prayerTimingsModal)
+    function countdownToSundown() {
+  
+        var sundownDate = new Date(2024, 2, 10, 18, 0, 0); 
+      
+        var x = setInterval(function() {
+      
+            var now = new Date().getTime();
+      
+            var timeRemaining = sundownDate - now;
+      
+            var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+      
+            setRamadanCounter(days + " days " + hours + " hours " + minutes + " minutes ");
+      
+            if (timeRemaining < 0) {
+                clearInterval(x);
+                console.log("Sundown has occurred.");
+            }
+        }, 1000);
     }
 
-    useEffect(() => {
-        dispatch(fetchPrayerTimes());
-        dispatch(fetchAthanTimes())
-      }, [dispatch]);
-    
+    useEffect(()=>{
+        getDate()
+        getHijriDate()
+        countdownToSundown();
+     })
   return (
     <>
     <div>
-        <div className='navBar'>
-          
+        <div className='header'>
+
+    <div className='calendarAndCountDownContainer'>
+        <div>{currentHijriYear} Hijri {currentHijriDay} {currentHijriMonth}</div>
+
+        <div> / Ramadan:</div>
+
+        <div>-{ramadanCounter}</div>
+    </div>
+        <div className='mosqueName'>Masjid Abu Bakr As-Siddique</div>
+
             <div className='contactNavBar'>
                 <img src={mail} alt='' />
                 <a href='mailto:info@isofg.ca'>info@isofg.ca</a>
@@ -51,71 +81,26 @@ const NavBar = () => {
 
             <div className='contactNavBar'>
                 <img src={phone} alt=''/>
-                <a href='tel:+15198039245'>+1 (519)803-9245</a>
+                <a href='tel:+15198039245'>+1 (226)505-7435</a>
             </div>
 
-<div>
-            <button onClick={handlePrayerTimingsModal} className='prayerBtn'>Prayer Timings <img src={chevronDown} alt='' /></button>
-            {prayerTimingsModal &&(
-    <div className='prayerModal'>
-        <table>
-        <thead>
-            <tr>
-              <th></th>
-            <th><strong>Salah</strong></th>
-            <th><strong>Time</strong></th>
-            <th><strong>Iqama</strong></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <th><img src={sunrise} alt=""/></th>
-                <th><strong>Fajr</strong></th>
-                <th>{prayerTimes.fajrAthan}</th>
-                <th>{iqamahTimes.fajr} AM</th>
-            </tr>
-            <tr>
-            <th><img src={sun} alt=""/></th>
-                <th><strong>Dhuhr</strong></th>
-                <th>{prayerTimes.dhurAthan}</th>
-                <th>{iqamahTimes.dhuhr} PM</th>
-            </tr>
-            <tr>
-            <th><img src={sun} alt=""/></th>
-                <th><strong>Asr</strong></th>
-                <th>{prayerTimes.asrAthan}</th>
-                <th>{iqamahTimes.asr} PM</th>
-            </tr>
-            <tr>
-            <th><img src={sunset} alt=""/></th>
-                <th><strong>Maghrib</strong></th>
-                <th>{prayerTimes.maghribAthan}</th>
-                <th>{prayerTimes.maghribAthan}</th>
-            </tr>
-            <tr>
-            <th><img src={moon} alt=""/></th>
-                <th><strong>Isha</strong></th>
-                <th>{prayerTimes.ishaAthan}</th>
-                <th>{iqamahTimes.isha} PM</th>
-            </tr>
-        </tbody>
-        </table>
-    </div>
-    )}
-</div>
         </div>
 
+
         <div className='navBarHeader'> 
+       
         <div className='mosqueLogo'>
             <img src={isog} alt=''/>
-            <div className='mosqueName'>مسجد أبو بكر الصديق - Masjid Abu Bakr As-Siddique
-</div>
-</div>
-            <ul>
+           
+        </div>
+        <ul>
                 <li>Home</li>
                 <li>About Us</li>
-                <li>Events</li>
+                <li>Funeral Services</li>
+                <li><a href='https://chat.whatsapp.com/KyThZmCSyLcFmmhovbx9bk' target='_blank'>WhatsApp Group</a></li>
+                <li className='donateBtn'>Donate to Us</li>
             </ul>
+
         </div>
     </div>
     
