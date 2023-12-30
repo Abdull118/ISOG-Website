@@ -45,6 +45,7 @@ a{
 .calendarAndCountDownContainer{
     display: flex;
     gap: 10px;
+    margin-left: -60px;
 }
 
 .navBarHeader{
