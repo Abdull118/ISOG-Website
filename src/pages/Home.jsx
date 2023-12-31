@@ -145,11 +145,23 @@ useEffect(() => {
   return () => clearInterval(interval); // Cleanup the interval on component unmount
 }, [prayerTimes]);
 
+const [announcements, setAnnouncements] = useState([])
+const getAnnouncements = async() =>{
+  try{
+      const response = await fetch('http://localhost:4000/announcements')
+      const data = await response.json()
+      setAnnouncements(data.annoucements)
+  }catch(error){
+      console.log(error)
+  }
+}
+
  useEffect(()=>{
     getDate()
     getHijriDate()
     countdownToSundown();
- })
+    getAnnouncements()
+ }, [])
 
 
   return (
@@ -223,7 +235,12 @@ useEffect(() => {
         <div className='eventsContainer'>
           <div className='eventsTitle'>Upcoming Events</div>
           <div className='divider1'></div>
+          {announcements.length>0 ? announcements.map((announcements, index)=>(
+            <div>{announcements}</div>
+          )):
           <div>No Future Events Yet</div>
+          }
+          
         </div>
 
         <div className='quranClassContainer'>

@@ -94,7 +94,7 @@ const NavBar = () => {
            
         </div>
         <ul>
-                <li>Home</li>
+                <li><a href="/">Home</a></li>
                 <li>About Us</li>
                 <li>Funeral Services</li>
                 <li><a href='https://chat.whatsapp.com/KyThZmCSyLcFmmhovbx9bk' target='_blank'>WhatsApp Group</a></li>
