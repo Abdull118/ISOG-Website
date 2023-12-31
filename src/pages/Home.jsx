@@ -148,7 +148,7 @@ useEffect(() => {
 const [announcements, setAnnouncements] = useState([])
 const getAnnouncements = async() =>{
   try{
-      const response = await fetch('http://localhost:4000/announcements')
+      const response = await fetch('https://sparkling-jade-cowboy-boots.cyclic.app/announcements')
       const data = await response.json()
       setAnnouncements(data.annoucements)
   }catch(error){
