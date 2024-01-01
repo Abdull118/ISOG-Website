@@ -183,7 +183,7 @@ const getAnnouncements = async() =>{
               <tr>
               <th><strong>Salah</strong></th>
               <th><strong>Time</strong></th>
-              <th><strong>Iqama</strong></th>
+              <th><strong>Iqamah</strong></th>
               </tr>
               
           </thead>
@@ -233,12 +233,12 @@ const getAnnouncements = async() =>{
       
       <div className='eventsAndAnnoucementsContainer'>
         <div className='eventsContainer'>
-          <div className='eventsTitle'>Upcoming Events</div>
+          <div className='eventsTitle'>Announcements</div>
           <div className='divider1'></div>
           {announcements.length>0 ? announcements.map((announcements, index)=>(
             <div>{announcements}</div>
           )):
-          <div>No Future Events Yet</div>
+          <div>No Future Announcements Yet</div>
           }
           
         </div>
