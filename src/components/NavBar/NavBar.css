@@ -107,3 +107,77 @@ a{
     background-color: #CDAC2F;
     border-bottom: 0px !important;
 }
+
+@media only screen and (max-width: 600px) {
+    .mobileMosqueLogo{
+        width: 25%;
+    }
+
+    .logoAndNav{
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 30px 0;
+    }
+
+    .mobileNavOpen{
+        height: 100vh;
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        background-color: white;
+        right: 0;
+        width: 70vw;
+        animation: slideInFromRight 1s ease forwards;
+    }
+
+    .donateBtn{
+        width: 30vw;
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    .mobileNavOpen ul{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 20px;
+    }
+
+    .closeOutModal{
+        margin-top: 20px;
+        margin-left: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(10, 96, 48);
+        width: 5vw;
+        text-align: center;
+        border-radius: 10px;
+        color: white;
+        box-shadow: 0px 0px 10px  0px rgba(0,0,0,.1);
+    }
+
+    .calendarAndCountDownContainer{
+        margin: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid lightGray;
+        box-shadow: 0px 0px 10px  0px rgba(0,0,0,.1);
+    }
+
+    .header{
+        box-shadow: 0px 0px 0px  0px rgba(0,0,0,0);
+        border: 0;
+        height: auto;
+        text-align: center;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+
+
+
+}

@@ -1,17 +1,25 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import mail from '../../images/mail.svg'
 import phone from '../../images/phone.svg'
 import isog from '../../images/isog2.png'
 import './NavBar.css'
+import { useWindowWidth } from '../functions/useWindowWidth'
+import dropDown from '../../images/mobileMenuDrop.svg'
 
 const NavBar = () => {
 
+    const windowWidth = useWindowWidth();
     const [currentHijriDay, setCurrentHijriDay] = useState()
     const [currentHijriMonth, setCurrentHijriMonth] = useState()
     const [currentHijriYear, setCurrentHijriYear] = useState()
     const [currentDate, setCurrentDate] = useState()
     const [ramadanCounter, setRamadanCounter] = useState()
-  
+
+    const [isOpen, setIsOpen] = useState(false);
+    const handleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
     const getDate = () => {
         var today = new Date(),
         date = (today.getMonth() + 1)  + '-' + today.getDate() + '-' + today.getFullYear();
@@ -60,49 +68,135 @@ const NavBar = () => {
         getHijriDate()
         countdownToSundown();
      })
+
+     const modalRef = useRef();
+
+     const handleClickOutside = (event) => {
+        if (isOpen && modalRef.current && !modalRef.current.contains(event.target)) {
+            setIsOpen(false); 
+        }
+    };
+
+
+     useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isOpen]);
+
   return (
     <>
-    <div>
-        <div className='header'>
+    {windowWidth < 600
+        ?
+            isOpen
+                ?
+                <div className='mobileNav'>
+                    <div className='calendarAndCountDownContainer'>
+                        <div>{currentHijriYear} Hijri {currentHijriDay} {currentHijriMonth}</div>
+                    
+                    <div>Ramadan: -{ramadanCounter}</div>
+                    </div>
 
-    <div className='calendarAndCountDownContainer'>
-        <div>{currentHijriYear} Hijri {currentHijriDay} {currentHijriMonth}</div>
+                    <div className='logoAndNav'>
+                    <img src={isog} alt='' className='mobileMosqueLogo'/>
+                    <img src={dropDown} onClick={handleMenu} alt='' />
+                   </div>
 
-        <div> / Ramadan:</div>
+                   <div className='header'>
+        
+                
+                        <div className='mosqueName'>Masjid Abu Bakr As-Siddique</div>
+                
+                        </div>
+                
+                </div>
+                :
+                <div className='mobileNav'>
+                    <div className='calendarAndCountDownContainer'>
+                        <div>{currentHijriYear} Hijri {currentHijriDay} {currentHijriMonth}</div>
+                    
+                    <div>Ramadan: -{ramadanCounter}</div>
+                    </div>
 
-        <div>-{ramadanCounter}</div>
-    </div>
-        <div className='mosqueName'>Masjid Abu Bakr As-Siddique</div>
+                    <div className='logoAndNav'>
+                    <img src={isog} alt='' className='mobileMosqueLogo'/>
+                    <img src={dropDown} onClick={handleMenu} alt='' />
+                   </div>
 
-            <div className='contactNavBar'>
-                <img src={mail} alt='' />
-                <a href='mailto:info@isofg.ca'>info@isofg.ca</a>
-            </div>
-
-            <div className='contactNavBar'>
-                <img src={phone} alt=''/>
-                <a href='tel:+15198039245'>+1 (226)505-7435</a>
-            </div>
-
-        </div>
-
-
-        <div className='navBarHeader'> 
-       
-        <div className='mosqueLogo'>
-            <img src={isog} alt=''/>
-           
-        </div>
-        <ul>
+                   <div className='header'>
+        
+                
+                        <div className='mosqueName'>Masjid Abu Bakr As-Siddique</div>
+                
+                        </div>
+                
+                </div>
+        :
+            null
+    }
+    
+    {windowWidth < 600
+        ?
+            isOpen
+                
+            ?
+            <div className='mobileNavOpen' ref={modalRef}>
+                <div className='closeOutModal' onClick={handleMenu}>X</div>
+            <ul>
                 <li><a href="/">Home</a></li>
                 <li>About Us</li>
                 <li>Funeral Services</li>
                 <li><a href='https://chat.whatsapp.com/KyThZmCSyLcFmmhovbx9bk' target='_blank'>WhatsApp Group</a></li>
                 <li className='donateBtn'>Donate to Us</li>
             </ul>
+            </div>
+                :
+                null
+                :
+            <div>
+                <div className='header'>
+        
+            <div className='calendarAndCountDownContainer'>
+                <div>{currentHijriYear} Hijri {currentHijriDay} {currentHijriMonth}</div>
+        
+                <div> / Ramadan:</div>
+        
+                <div>-{ramadanCounter}</div>
+            </div>
+                <div className='mosqueName'>Masjid Abu Bakr As-Siddique</div>
+        
+                    <div className='contactNavBar'>
+                        <img src={mail} alt='' />
+                        <a href='mailto:info@isofg.ca'>info@isofg.ca</a>
+                    </div>
+        
+                    <div className='contactNavBar'>
+                        <img src={phone} alt=''/>
+                        <a href='tel:+15198039245'>+1 (226)505-7435</a>
+                    </div>
+        
+                </div>
+        
+        
+                <div className='navBarHeader'> 
+               
+                <div className='mosqueLogo'>
+                    <img src={isog} alt=''/>
+                   
+                </div>
+                <ul>
+                        <li><a href="/">Home</a></li>
+                        <li>About Us</li>
+                        <li>Funeral Services</li>
+                        <li><a href='https://chat.whatsapp.com/KyThZmCSyLcFmmhovbx9bk' target='_blank'>WhatsApp Group</a></li>
+                        <li className='donateBtn'>Donate to Us</li>
+                    </ul>
+        
+                </div>
+            </div>
+    }
 
-        </div>
-    </div>
     
     
     </>
