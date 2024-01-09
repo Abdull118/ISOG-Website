@@ -308,7 +308,7 @@ const getAnnouncements = async() =>{
 
             <div className='contactHome'>
                 <img src={phone} alt=''/>
-                <a href='tel:+15198039245'>+1 (226)505-7435</a>
+                <a href='tel:+15198039245'>+1 (519)803-9245</a>
             </div>
 
             <div className='contactHome'>
