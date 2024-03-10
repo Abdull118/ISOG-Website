@@ -310,6 +310,15 @@ span{
     width: 40vw;
 }
 @media only screen and (max-width: 600px) {
+
+    .ramadanCalendarContainer{
+        font-size: 30px;
+    }
+
+    .ramadanCalendarContainer img{
+        width: 95vw;
+    }    
+
     .ramadanContainer{
        width: 100vw;
        border: 0px;

@@ -148,7 +148,7 @@ const NavBar = () => {
                 <li>About Us</li>
                 <li>Funeral Services</li>
                 <li><a href='https://chat.whatsapp.com/KyThZmCSyLcFmmhovbx9bk' target='_blank'>WhatsApp Group</a></li>
-                <li><a href="../ramadanCalendar.pdf" download="ramadanCalendar.pdf">
+                <li><a href="https://drive.google.com/uc?export=download&id=1w7NR5r94XUyyUaRK56VXAznPxWV9HjJI" download="ramadanCalendar.pdf">
                         Ramadan Calendar</a></li>
                 <li className='donateBtn'>Donate to Us</li>
             </ul>
@@ -191,7 +191,7 @@ const NavBar = () => {
                         <li>About Us</li>
                         <li>Funeral Services</li>
                         <li><a href='https://chat.whatsapp.com/KyThZmCSyLcFmmhovbx9bk' target='_blank'>WhatsApp Group</a></li>
-                        <li><a href="../ramadanCalendar.pdf" download="ramadanCalendar.pdf">
+                        <li><a href="https://drive.google.com/uc?export=download&id=1w7NR5r94XUyyUaRK56VXAznPxWV9HjJI" download="ramadanCalendar.pdf">
                         Ramadan Calendar</a></li>
                         <li className='donateBtn'>Donate to Us</li>
                     </ul>
