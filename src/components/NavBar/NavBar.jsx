@@ -95,7 +95,7 @@ const NavBar = () => {
                     <div className='calendarAndCountDownContainer'>
                         <div>{currentHijriYear} Hijri {currentHijriDay} {currentHijriMonth}</div>
                     
-                    <div>Ramadan: -{ramadanCounter}</div>
+                    <div>Ramadan Mubarak!</div>
                     </div>
 
                     <div className='logoAndNav'>
