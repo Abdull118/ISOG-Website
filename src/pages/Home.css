@@ -289,6 +289,26 @@ span{
     border-bottom: 1px dashed lightGray;
 }
 
+.ramadanCalendarContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center; 
+    object-fit: cover;
+    font-size: 50px;
+    margin-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    color: rgb(10, 96, 48); 
+    border: 7px solid #CDAC2F;    
+}
+
+.ramadanCalendarContainer img{
+    object-fit: cover;
+    margin: 0 auto;
+    width: 40vw;
+}
 @media only screen and (max-width: 600px) {
     .ramadanContainer{
        width: 100vw;

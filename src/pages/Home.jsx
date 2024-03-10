@@ -12,6 +12,7 @@ import pin from '../images/pin.svg'
 import masjid from '../images/masjidNight.jpeg'
 import mosqueVector from '../images/mosque.svg'
 import quran from '../images/quranVector.jpg'
+import ramadanCalendar from '../images/ramadanCalendar.jpeg'
 
 const Home = () => {
 
@@ -258,14 +259,20 @@ const getAnnouncements = async() =>{
 
     </div>
 
+    <div className='ramadanCalendarContainer'>
+
+      <div>2024 Ramadan Calendar </div>
+      <img src={ramadanCalendar} />
+    </div>
+
       <div className='ramadanContainer'>
         <div>FASTING TIMES IN GUELPH</div>
         <div>{currentHijriYear} Hijri {currentHijriDay} {currentHijriMonth}</div>
         <div>{moment().format('dddd MMMM D YYYY')}</div>
 
     <div className='counterContainer'>
-        <div>Time Left to Ramadan:</div>
-        <div>-{ramadanCounter}</div>
+        <div>Ramadan Mubarak!</div>
+        
     </div>
 
         <div className='fastingContainer'>

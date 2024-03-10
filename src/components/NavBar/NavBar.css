@@ -63,8 +63,7 @@ a{
 .mosqueLogo img{
     width: 55px;
     height: 50px;
-    position: relative;
-    right: 100px;  
+    position: relative; 
 }
 
 .navBarHeader ul{

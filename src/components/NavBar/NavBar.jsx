@@ -116,7 +116,7 @@ const NavBar = () => {
                     <div className='calendarAndCountDownContainer'>
                         <div>{currentHijriYear} Hijri {currentHijriDay} {currentHijriMonth}</div>
                     
-                    <div>Ramadan: -{ramadanCounter}</div>
+                    <div>Ramadan Mubarak!</div>
                     </div>
 
                     <div className='logoAndNav'>
@@ -148,6 +148,8 @@ const NavBar = () => {
                 <li>About Us</li>
                 <li>Funeral Services</li>
                 <li><a href='https://chat.whatsapp.com/KyThZmCSyLcFmmhovbx9bk' target='_blank'>WhatsApp Group</a></li>
+                <li><a href="../ramadanCalendar.pdf" download="ramadanCalendar.pdf">
+                        Ramadan Calendar</a></li>
                 <li className='donateBtn'>Donate to Us</li>
             </ul>
             </div>
@@ -160,9 +162,8 @@ const NavBar = () => {
             <div className='calendarAndCountDownContainer'>
                 <div>{currentHijriYear} Hijri {currentHijriDay} {currentHijriMonth}</div>
         
-                <div> / Ramadan:</div>
+                <div> / Ramadan Mubarak!</div>
         
-                <div>-{ramadanCounter}</div>
             </div>
                 <div className='mosqueName'>Masjid Abu Bakr As-Siddique</div>
         
@@ -190,6 +191,8 @@ const NavBar = () => {
                         <li>About Us</li>
                         <li>Funeral Services</li>
                         <li><a href='https://chat.whatsapp.com/KyThZmCSyLcFmmhovbx9bk' target='_blank'>WhatsApp Group</a></li>
+                        <li><a href="../ramadanCalendar.pdf" download="ramadanCalendar.pdf">
+                        Ramadan Calendar</a></li>
                         <li className='donateBtn'>Donate to Us</li>
                     </ul>
         
