@@ -310,7 +310,7 @@ const getAnnouncements = async() =>{
           </div>
           <div className='contactHome'>
                 <img src={mail} alt='' />
-                <a href='mailto:info@isofg.ca'>info@isofg.ca</a>
+                <a href='mailto:info.isofg@gmail.com'>info.isofg@gmail.com</a>
             </div>
 
             <div className='contactHome'>
