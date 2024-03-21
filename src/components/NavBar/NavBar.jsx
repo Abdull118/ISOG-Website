@@ -169,7 +169,7 @@ const NavBar = () => {
         
                     <div className='contactNavBar'>
                         <img src={mail} alt='' />
-                        <a href='mailto:info@isofg.ca'>info@isofg.ca</a>
+                        <a href='mailtoinfo.isofg@gmail.com'>info.isofg@gmail.com</a>
                     </div>
         
                     <div className='contactNavBar'>
