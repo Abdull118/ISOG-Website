@@ -102,6 +102,10 @@ a{
     cursor: pointer;
 }
 
+.donateBtn a {
+    color: white;
+}
+
 .donateBtn:hover{
     background-color: #CDAC2F;
     border-bottom: 0px !important;
