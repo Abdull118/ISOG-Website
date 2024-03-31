@@ -5,6 +5,7 @@ import isog from '../../images/isog2.png'
 import './NavBar.css'
 import { useWindowWidth } from '../functions/useWindowWidth'
 import dropDown from '../../images/mobileMenuDrop.svg'
+import { copyURL } from '../functions/copyURL'
 
 const NavBar = () => {
 
@@ -14,6 +15,7 @@ const NavBar = () => {
     const [currentHijriYear, setCurrentHijriYear] = useState()
     const [currentDate, setCurrentDate] = useState()
     const [ramadanCounter, setRamadanCounter] = useState()
+    const [confirmScreen, setConfirmScreen] = useState(true)
 
     const [isOpen, setIsOpen] = useState(false);
     const handleMenu = () => {
@@ -38,6 +40,15 @@ const NavBar = () => {
          console.log(error)
        }
      }
+
+     const handleCopyFunction = () => {
+        setConfirmScreen(!confirmScreen)
+        copyURL('Donations.isofg@gmail.com')
+
+        if(isOpen == true){
+            setIsOpen(false)
+        }
+     } 
 
     function countdownToSundown() {
   
@@ -100,6 +111,7 @@ const NavBar = () => {
 
                     <div className='logoAndNav'>
                     <img src={isog} alt='' className='mobileMosqueLogo'/>
+                    <a className='donateBtn' onClick={handleCopyFunction}>Donate via eTransfer</a>
                     <img src={dropDown} onClick={handleMenu} alt='' />
                    </div>
 
@@ -121,6 +133,8 @@ const NavBar = () => {
 
                     <div className='logoAndNav'>
                     <img src={isog} alt='' className='mobileMosqueLogo'/>
+                    <a className='donateBtn' onClick={handleCopyFunction}>Donate via eTransfer</a>
+
                     <img src={dropDown} onClick={handleMenu} alt='' />
                    </div>
 
@@ -150,7 +164,7 @@ const NavBar = () => {
                 <li><a href='https://chat.whatsapp.com/KyThZmCSyLcFmmhovbx9bk' target='_blank'>WhatsApp Group</a></li>
                 <li><a href="https://drive.google.com/uc?export=download&id=1w7NR5r94XUyyUaRK56VXAznPxWV9HjJI" download="ramadanCalendar.pdf">
                         Ramadan Calendar</a></li>
-                <li className='donateBtn'><a href='mailto:Donations.isofg@gmail.com'>Donate via eTransfer</a></li>
+                <li className='donateBtn'><a onClick={handleCopyFunction}>Donate via eTransfer</a></li>
             </ul>
             </div>
                 :
@@ -193,12 +207,29 @@ const NavBar = () => {
                         <li><a href='https://chat.whatsapp.com/KyThZmCSyLcFmmhovbx9bk' target='_blank'>WhatsApp Group</a></li>
                         <li><a href="https://drive.google.com/uc?export=download&id=1w7NR5r94XUyyUaRK56VXAznPxWV9HjJI" download="ramadanCalendar.pdf">
                         Ramadan Calendar</a></li>
-                        <li className='donateBtn'><a href='mailto:Donations.isofg@gmail.com'>Donate via eTransfer</a></li>
+                        <li className='donateBtn'><a onClick={handleCopyFunction}>Donate via eTransfer</a></li>
                     </ul>
         
                 </div>
             </div>
     }
+
+    {confirmScreen && (
+        <div className='confirmScreenOverlay'>
+            <div className='confirmScreenContainer'>
+                <div className='confirmScreenTitle'>
+                    Jazak Allahu Khayrun for Supporting Your Masjid !!
+                </div>
+
+                <div className='confirmScreenMessage'> 
+                    The email for eTransfer has been copied! You can click the button below to copy it again.
+                </div>
+
+                <button className='copyButton' onClick={handleCopyFunction}>Copy Email & Close</button>
+            </div>
+
+        </div>
+    )}
 
     
     

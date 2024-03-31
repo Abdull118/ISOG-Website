@@ -104,6 +104,7 @@ a{
 
 .donateBtn a {
     color: white;
+    text-align: center;
 }
 
 .donateBtn:hover{
@@ -111,16 +112,84 @@ a{
     border-bottom: 0px !important;
 }
 
+
+.confirmScreenOverlay{
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    color: black;
+    z-index: 1;
+    background-color: rgba(0,0,0, 0.3);
+}
+
+.confirmScreenContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 30vh;
+    width: 40vw;
+    background-color: rgb(10, 96, 48);
+    z-index: 2;
+    border-radius: 15px; 
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: center;
+    text-align: center; 
+    padding: 0 30px;
+}
+
+.confirmScreenTitle{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.confirmScreenMessage{
+    font-size: 20px;
+}
+
+.copyButton{
+    background-color: #CDAC2F;
+    margin-top: 20px;
+    width: 30vw;
+    margin: 20px auto 0;
+}
+
+
 @media only screen and (max-width: 600px) {
     .mobileMosqueLogo{
         width: 25%;
     }
 
+    .copyButton{
+        width: auto; 
+        height: 50vh;
+         width: 70vw;
+    }
+
+    .confirmScreenContainer{
+        width: ;
+    }
+
+
     .logoAndNav{
         display: flex;
-        justify-content: space-between;
-        margin: 10px 30px 0;
+        justify-content: center;
+        gap: 40px;
+        align-items: center; 
     }
+
+    .logoAndNav .donateBtn{
+        margin-left: -30px;
+        width: auto;
+    }
+
+    
 
     .mobileNavOpen{
         height: 100vh;
@@ -134,7 +203,7 @@ a{
     }
 
     .donateBtn{
-        width: 30vw;
+        width: 40vw;
         padding: 10px;
         font-size: 20px;
     }
