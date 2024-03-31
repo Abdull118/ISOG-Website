@@ -222,7 +222,7 @@ const NavBar = () => {
                 </div>
 
                 <div className='confirmScreenMessage'> 
-                    The email for eTransfer has been copied! You can click the button below to copy it again.
+                    Click the button below to copy it again.
                 </div>
 
                 <button className='copyButton' onClick={handleCopyFunction}>Copy Email & Close</button>
