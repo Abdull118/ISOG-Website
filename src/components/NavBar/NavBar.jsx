@@ -150,7 +150,7 @@ const NavBar = () => {
                 <li><a href='https://chat.whatsapp.com/KyThZmCSyLcFmmhovbx9bk' target='_blank'>WhatsApp Group</a></li>
                 <li><a href="https://drive.google.com/uc?export=download&id=1w7NR5r94XUyyUaRK56VXAznPxWV9HjJI" download="ramadanCalendar.pdf">
                         Ramadan Calendar</a></li>
-                <li className='donateBtn'><a href='mailto:Donations.isofg@gmail.com'>Donate to Us</a></li>
+                <li className='donateBtn'><a href='mailto:Donations.isofg@gmail.com'>Donate via eTransfer</a></li>
             </ul>
             </div>
                 :
@@ -193,7 +193,7 @@ const NavBar = () => {
                         <li><a href='https://chat.whatsapp.com/KyThZmCSyLcFmmhovbx9bk' target='_blank'>WhatsApp Group</a></li>
                         <li><a href="https://drive.google.com/uc?export=download&id=1w7NR5r94XUyyUaRK56VXAznPxWV9HjJI" download="ramadanCalendar.pdf">
                         Ramadan Calendar</a></li>
-                        <li className='donateBtn'><a href='mailto:Donations.isofg@gmail.com'>Donate to Us</a></li>
+                        <li className='donateBtn'><a href='mailto:Donations.isofg@gmail.com'>Donate via eTransfer</a></li>
                     </ul>
         
                 </div>
