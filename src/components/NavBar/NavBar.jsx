@@ -15,7 +15,7 @@ const NavBar = () => {
     const [currentHijriYear, setCurrentHijriYear] = useState()
     const [currentDate, setCurrentDate] = useState()
     const [ramadanCounter, setRamadanCounter] = useState()
-    const [confirmScreen, setConfirmScreen] = useState(true)
+    const [confirmScreen, setConfirmScreen] = useState(false)
 
     const [isOpen, setIsOpen] = useState(false);
     const handleMenu = () => {

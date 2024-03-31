@@ -132,7 +132,7 @@ a{
     left: 50%;
     transform: translate(-50%, -50%);
     height: 30vh;
-    width: 40vw;
+    width: 30vw;
     background-color: rgb(10, 96, 48);
     z-index: 2;
     border-radius: 15px; 
@@ -168,13 +168,13 @@ a{
 
     .copyButton{
         width: auto; 
-        height: 50vh;
-         width: 70vw;
     }
 
     .confirmScreenContainer{
-        width: ;
+        height: 50vh;
+         width: 70vw;
     }
+    
 
 
     .logoAndNav{
