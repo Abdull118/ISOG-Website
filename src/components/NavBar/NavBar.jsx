@@ -106,7 +106,6 @@ const NavBar = () => {
                     <div className='calendarAndCountDownContainer'>
                         <div>{currentHijriYear} Hijri {currentHijriDay} {currentHijriMonth}</div>
                     
-                    <div>Ramadan Mubarak!</div>
                     </div>
 
                     <div className='logoAndNav'>
@@ -128,7 +127,6 @@ const NavBar = () => {
                     <div className='calendarAndCountDownContainer'>
                         <div>{currentHijriYear} Hijri {currentHijriDay} {currentHijriMonth}</div>
                     
-                    <div>Ramadan Mubarak!</div>
                     </div>
 
                     <div className='logoAndNav'>
@@ -162,8 +160,11 @@ const NavBar = () => {
                 <li>About Us</li>
                 <li>Funeral Services</li>
                 <li><a href='https://chat.whatsapp.com/KyThZmCSyLcFmmhovbx9bk' target='_blank'>WhatsApp Group</a></li>
-                <li><a href="https://drive.google.com/uc?export=download&id=1w7NR5r94XUyyUaRK56VXAznPxWV9HjJI" download="ramadanCalendar.pdf">
-                        Ramadan Calendar</a></li>
+                
+                {/* Link for Ramadan Calendar Download from Google Drive: */}
+
+                {/* <li><a href="https://drive.google.com/uc?export=download&id=1w7NR5r94XUyyUaRK56VXAznPxWV9HjJI" download="ramadanCalendar.pdf">
+                        Ramadan Calendar</a></li> */}
                 <li className='donateBtn'><a onClick={handleCopyFunction}>Donate via eTransfer</a></li>
             </ul>
             </div>
@@ -176,7 +177,6 @@ const NavBar = () => {
             <div className='calendarAndCountDownContainer'>
                 <div>{currentHijriYear} Hijri {currentHijriDay} {currentHijriMonth}</div>
         
-                <div> / Ramadan Mubarak!</div>
         
             </div>
                 <div className='mosqueName'>Masjid Abu Bakr As-Siddique</div>
@@ -205,8 +205,11 @@ const NavBar = () => {
                         <li>About Us</li>
                         <li>Funeral Services</li>
                         <li><a href='https://chat.whatsapp.com/KyThZmCSyLcFmmhovbx9bk' target='_blank'>WhatsApp Group</a></li>
-                        <li><a href="https://drive.google.com/uc?export=download&id=1w7NR5r94XUyyUaRK56VXAznPxWV9HjJI" download="ramadanCalendar.pdf">
-                        Ramadan Calendar</a></li>
+                        
+                        {/* Link for Ramadan Calendar Download from Google Drive: */}
+
+                        {/* <li><a href="https://drive.google.com/uc?export=download&id=1w7NR5r94XUyyUaRK56VXAznPxWV9HjJI" download="ramadanCalendar.pdf">
+                        Ramadan Calendar</a></li> */}
                         <li className='donateBtn'><a onClick={handleCopyFunction}>Donate via eTransfer</a></li>
                     </ul>
         

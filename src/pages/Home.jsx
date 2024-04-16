@@ -259,21 +259,12 @@ const getAnnouncements = async() =>{
 
     </div>
 
-    <div className='ramadanCalendarContainer'>
-
-      <div>2024 Ramadan Calendar </div>
-      <img src={ramadanCalendar} />
-    </div>
 
       <div className='ramadanContainer'>
         <div>FASTING TIMES IN GUELPH</div>
         <div>{currentHijriYear} Hijri {currentHijriDay} {currentHijriMonth}</div>
         <div>{moment().format('dddd MMMM D YYYY')}</div>
 
-    <div className='counterContainer'>
-        <div>Ramadan Mubarak!</div>
-        
-    </div>
 
         <div className='fastingContainer'>
 
