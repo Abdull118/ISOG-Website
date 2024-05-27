@@ -149,7 +149,7 @@ useEffect(() => {
 const [announcements, setAnnouncements] = useState([])
 const getAnnouncements = async() =>{
   try{
-      const response = await fetch('https://sparkling-jade-cowboy-boots.cyclic.app/announcements')
+      const response = await fetch('https://isog-prayer-times-server.onrender.com/announcements')
       const data = await response.json()
       setAnnouncements(data.annoucements)
   }catch(error){
