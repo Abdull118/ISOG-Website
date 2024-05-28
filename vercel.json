@@ -19,5 +19,8 @@
       "src": "/(.*)",
       "dest": "build/$1"
     }
-  ]
+  ],
+  "env": {
+    "DB_URI": "mongodb+srv://ahmadevelops:Abdull118@cluster0.rufna06.mongodb.net/"
+  }
 }
