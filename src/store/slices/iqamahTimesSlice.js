@@ -5,7 +5,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchPrayerTimes = createAsyncThunk(
   'iqamahTimes/fetchPrayerTimes',
   async () => {
-    const response = await fetch(`https://isog-prayer-times-server.onrender.com/prayers`);
+    const response = await fetch(`/api/prayers`);
     const data = await response.json();
     return data; // Return the prayer times data
   }
