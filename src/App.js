@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar';
 import { Provider } from 'react-redux';
 import store from './store/store';
 import Admin from './pages/Admin';
+import ETransfer from './pages/ETransfer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/admin' element={<Admin />}/>
+          <Route path='/eTransfer' element={<ETransfer />}/>
         </Routes>
       </Router>
     </Provider>
