@@ -309,7 +309,7 @@ span{
     margin: 0 auto;
     width: 40vw;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
 
     .ramadanCalendarContainer{
         font-size: 30px;
