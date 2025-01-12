@@ -98,7 +98,7 @@ const NavBar = () => {
 
   return (
     <>
-    {windowWidth < 600
+    {windowWidth < 800
         ?
             isOpen
                 ?
@@ -148,7 +148,7 @@ const NavBar = () => {
             null
     }
     
-    {windowWidth < 600
+    {windowWidth < 800
         ?
             isOpen
                 
