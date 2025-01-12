@@ -161,7 +161,7 @@ a{
 }
 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
     .mobileMosqueLogo{
         width: 25%;
     }
