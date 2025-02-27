@@ -208,8 +208,8 @@ const NavBar = () => {
                         
                         {/* Link for Ramadan Calendar Download from Google Drive: */}
 
-                        {/* <li><a href="https://drive.google.com/uc?export=download&id=1w7NR5r94XUyyUaRK56VXAznPxWV9HjJI" download="ramadanCalendar.pdf">
-                        Ramadan Calendar</a></li> */}
+                        <li><a href="https://drive.google.com/uc?export=download&id=16-_Mwyy9K3pbewk4UzoIsqCTCfV4kydd" download="ramadanCalendar.pdf">
+                        Ramadan Calendar</a></li>
                         <li className='donateBtn'><a onClick={handleCopyFunction}>Donate via eTransfer</a></li>
                     </ul>
         
