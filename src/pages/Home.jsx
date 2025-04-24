@@ -259,11 +259,11 @@ const getAnnouncements = async() =>{
 
     </div>
 
-    <div className='ramadanCalendarContainer'>
+    {/* <div className='ramadanCalendarContainer'>
 
       <div>2025 Ramadan Calendar </div>
       <img src={ramadanCalendar} />
-    </div>
+    </div> */}
 
 
       <div className='ramadanContainer'>
