@@ -1,0 +1,312 @@
+@keyframes fadeInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  100% {
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+.mainContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-top: 10px;
+    gap: 20px;
+}
+
+.funeralContainer{
+    width: 66.666vw;
+    display: flex;
+    animation: fadeInFromBottom 1s ease forwards;
+}
+
+.funeralContent{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    font-size: 18px;
+    line-height: 1.6;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.funeralHeader{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.funeralHeader img{
+    width: 40px;
+    height: 40px;
+}
+
+.funeralTitle{
+    color: rgb(10, 96, 48);
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.divider1 {
+    position: relative;
+    padding: 1.75px;
+    z-index: 2;
+    margin: 8px 0 20px 0;
+}
+  
+.divider1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #CDAC2F, white);
+    z-index: -1;
+    border-radius: inherit;
+}
+
+.funeralText h2{
+    color: rgb(10, 96, 48);
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.funeralText h3{
+    color: rgb(10, 96, 48);
+    font-size: 20px;
+    margin: 25px 0 10px 0;
+    font-weight: 600;
+}
+
+.funeralText h4{
+    color: rgb(10, 96, 48);
+    font-size: 18px;
+    margin: 20px 0 10px 0;
+    font-weight: 600;
+}
+
+.funeralText p{
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.funeralText ul, .funeralText ol{
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.funeralText li{
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.funeralText strong{
+    color: rgb(10, 96, 48);
+    font-weight: 600;
+}
+
+.emergencyContact{
+    background-color: #f8f9fa;
+    border: 2px solid rgb(10, 96, 48);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.contactItem{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.contactItem:last-child{
+    margin-bottom: 0;
+}
+
+.contactItem img{
+    width: 20px;
+    height: 20px;
+}
+
+.contactItem a{
+    color: rgb(10, 96, 48);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.contactItem a:hover{
+    text-decoration: underline;
+}
+
+.infoSection{
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.noteBox{
+    background-color: #fff3cd;
+    border: 2px solid #ffc107;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.noteBox h4{
+    color: #856404;
+    margin-bottom: 10px;
+}
+
+.noteBox p{
+    color: #856404;
+    margin-bottom: 0;
+}
+
+.imageContainer{
+    width: 33.333vw;
+    display: flex;
+    animation: fadeInFromBottom 1s ease forwards;
+}
+
+.masjidImage{
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    object-fit: cover;
+    height: 100%;
+}
+
+.footerContainer{
+    margin: 10px auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    border-radius: 15px; 
+    box-shadow: 0 0 100px rgba(0,0,0,.3);
+}
+
+.contactContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contactHome{
+    display: flex;
+    align-items: center;
+}
+
+.contactHome a, .contactHome div{
+    text-decoration: none;
+    color: black;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed lightGray;
+}
+
+.contactHome img{
+    width: 20px;
+    height: 20px;
+}
+
+@media only screen and (max-width: 800px) {
+    .mainContainer{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .funeralContainer, .imageContainer{
+        width: 90vw;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .funeralContent{
+        padding: 20px;
+        font-size: 16px;
+    }
+
+    .funeralTitle{
+        font-size: 24px;
+    }
+
+    .funeralText h2{
+        font-size: 20px;
+    }
+
+    .funeralText h3{
+        font-size: 18px;
+    }
+
+    .funeralText h4{
+        font-size: 16px;
+    }
+
+    .emergencyContact, .infoSection, .noteBox{
+        padding: 15px;
+    }
+
+    .masjidImage{
+        border-radius: 10px;
+        min-height: 300px;
+    }
+
+    .footerContainer{
+        width: auto;
+        padding: 30px 20px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .funeralContainer, .imageContainer{
+        width: 95vw;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .funeralContent{
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .funeralTitle{
+        font-size: 20px;
+    }
+
+    .funeralText h2{
+        font-size: 18px;
+    }
+
+    .funeralText h3{
+        font-size: 16px;
+    }
+
+    .funeralText h4{
+        font-size: 15px;
+    }
+
+    .emergencyContact, .infoSection, .noteBox{
+        padding: 12px;
+    }
+
+    .contactItem a{
+        font-size: 14px;
+    }
+
+    .masjidImage{
+        min-height: 250px;
+    }
+}

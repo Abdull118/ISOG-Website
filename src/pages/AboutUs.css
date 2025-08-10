@@ -1,0 +1,220 @@
+@keyframes fadeInFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  100% {
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+.mainContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-top: 10px;
+    gap: 20px;
+}
+
+.aboutContainer{
+    width: 66.666vw;
+    display: flex;
+    animation: fadeInFromBottom 1s ease forwards;
+}
+
+.aboutContent{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    font-size: 18px;
+    line-height: 1.6;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.aboutHeader{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.aboutHeader img{
+    width: 40px;
+    height: 40px;
+}
+
+.aboutTitle{
+    color: rgb(10, 96, 48);
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.divider1 {
+    position: relative;
+    padding: 1.75px;
+    z-index: 2;
+    margin: 8px 0 20px 0;
+}
+  
+.divider1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #CDAC2F, white);
+    z-index: -1;
+    border-radius: inherit;
+}
+
+.aboutText h2{
+    color: rgb(10, 96, 48);
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.aboutText h3{
+    color: rgb(10, 96, 48);
+    font-size: 20px;
+    margin: 25px 0 10px 0;
+    font-weight: 600;
+}
+
+.aboutText p{
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.aboutText ul{
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.aboutText li{
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.imageContainer{
+    width: 33.333vw;
+    display: flex;
+    animation: fadeInFromBottom 1s ease forwards;
+}
+
+.masjidImage{
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    object-fit: cover;
+    height: 100%;
+}
+
+.footerContainer{
+    margin: 10px auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    border-radius: 15px; 
+    box-shadow: 0 0 100px rgba(0,0,0,.3);
+}
+
+.contactContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contactHome{
+    display: flex;
+    align-items: center;
+}
+
+.contactHome a, .contactHome div{
+    text-decoration: none;
+    color: black;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed lightGray;
+}
+
+.contactHome img{
+    width: 20px;
+    height: 20px;
+}
+
+@media only screen and (max-width: 800px) {
+    .mainContainer{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .aboutContainer, .imageContainer{
+        width: 90vw;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .aboutContent{
+        padding: 20px;
+        font-size: 16px;
+    }
+
+    .aboutTitle{
+        font-size: 24px;
+    }
+
+    .aboutText h2{
+        font-size: 20px;
+    }
+
+    .aboutText h3{
+        font-size: 18px;
+    }
+
+    .masjidImage{
+        border-radius: 10px;
+        min-height: 300px;
+    }
+
+    .footerContainer{
+        width: auto;
+        padding: 30px 20px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .aboutContainer, .imageContainer{
+        width: 95vw;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .aboutContent{
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .aboutTitle{
+        font-size: 20px;
+    }
+
+    .aboutText h2{
+        font-size: 18px;
+    }
+
+    .aboutText h3{
+        font-size: 16px;
+    }
+
+    .masjidImage{
+        min-height: 250px;
+    }
+}

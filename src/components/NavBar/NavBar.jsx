@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef} from 'react'
+import {useState, useEffect, useRef, useCallback} from 'react'
 import mail from '../../images/mail.svg'
 import phone from '../../images/phone.svg'
 import isog from '../../images/isog2.png'
@@ -14,7 +14,6 @@ const NavBar = () => {
     const [currentHijriMonth, setCurrentHijriMonth] = useState()
     const [currentHijriYear, setCurrentHijriYear] = useState()
     const [currentDate, setCurrentDate] = useState()
-    const [ramadanCounter, setRamadanCounter] = useState()
     const [confirmScreen, setConfirmScreen] = useState(false)
 
     const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +30,7 @@ const NavBar = () => {
       
     const getHijriDate = async () => {
         try {
-         const response = await fetch(`https://api.aladhan.com/v1/gToH?=${currentDate}`);
+         const response = await fetch(`https://api.aladhan.com/v1/gToH?date=${currentDate}`);
          const json = await response.json();
          setCurrentHijriDay(json.data.hijri.day)
          setCurrentHijriMonth(json.data.hijri.month.ar)
@@ -45,40 +44,22 @@ const NavBar = () => {
         setConfirmScreen(!confirmScreen)
         copyURL('Donations.isofg@gmail.com')
 
-        if(isOpen == true){
+        if(isOpen === true){
             setIsOpen(false)
         }
      } 
 
-    function countdownToSundown() {
-  
-        var sundownDate = new Date(2024, 2, 10, 18, 0, 0); 
-      
-        var x = setInterval(function() {
-      
-            var now = new Date().getTime();
-      
-            var timeRemaining = sundownDate - now;
-      
-            var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-      
-            setRamadanCounter(days + " days " + hours + " hours " + minutes + " minutes ");
-      
-            if (timeRemaining < 0) {
-                clearInterval(x);
-                console.log("Sundown has occurred.");
-            }
-        }, 1000);
-    }
+
 
     useEffect(()=>{
         getDate()
-        getHijriDate()
-        countdownToSundown();
-     })
+     }, [])
+
+    useEffect(() => {
+        if (currentDate) {
+            getHijriDate()
+        }
+    }, [currentDate])
 
      const modalRef = useRef();
 
@@ -157,8 +138,8 @@ const NavBar = () => {
                 <div className='closeOutModal' onClick={handleMenu}>X</div>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li>About Us</li>
-                <li>Funeral Services</li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/funeral-services">Funeral Services</a></li>
                 <li><a href='https://chat.whatsapp.com/KyThZmCSyLcFmmhovbx9bk' target='_blank'>WhatsApp Group</a></li>
                 
                 {/* Link for Ramadan Calendar Download from Google Drive: */}
@@ -200,10 +181,10 @@ const NavBar = () => {
                     <img src={isog} alt=''/>
                    
                 </div>
-                <ul>
+                                    <ul>
                         <li><a href="/">Home</a></li>
-                        <li>About Us</li>
-                        <li>Funeral Services</li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/funeral-services">Funeral Services</a></li>
                         <li><a href='https://chat.whatsapp.com/KyThZmCSyLcFmmhovbx9bk' target='_blank'>WhatsApp Group</a></li>
                         
                         {/* Link for Ramadan Calendar Download from Google Drive: */}

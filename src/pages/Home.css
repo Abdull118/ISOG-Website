@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 @keyframes fadeInFromBottom {
   0% {
     opacity: 0;
@@ -20,16 +24,17 @@
     }
 }
 
-.mainContainer{
+.mainContainer1{
     display: flex;
     flex-direction: row ;
     align-items: center;
     padding-top: 10px;
 }
 
-.masjidImage{
-    width: 33.3333vw;
-    float: right;
+.masjidImage1{
+    width: 33.333vw !important;
+    height: auto;
+    object-fit: cover;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     animation: fadeInFromBottom 1s ease forwards; 
@@ -194,56 +199,87 @@ span{
 
 .ramadanContainer{
     width: 100%;
-    border: 10px solid white;
-    border-right: 0;
-    border-left: 0;
-    background: linear-gradient(106deg, rgb(131 89 118), rgb(131 89 118) 26%, rgb(0, 78, 192)), linear-gradient(106deg, rgba(71, 229, 238, 0), rgb(0, 78, 192) 28%, rgb(0, 78, 192) 74%);
+    max-width: 100vw;
+    background: rgb(10, 96, 48);
     text-align: center;
     color: white;
     font-size: 25px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 60px 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    box-sizing: border-box;
 }
 
 .ramadanContainer >div:first-child {
     font-weight: 700;
-    font-size: 50px;
+    font-size: 42px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.ramadanContainer >div:nth-child(2) {
+    font-size: 20px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.ramadanContainer >div:nth-child(3) {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.8;
 }
 
 .fastingContainer{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 300px;
-    background-color: rgba(255,255,255,0.2);
-    width: 80%;
+    gap: 100px;
+    background-color: rgba(255,255,255,0.15);
+    width: 90%;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 60px;
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    box-sizing: border-box;
 }
 
 .counterContainer{
-    border: 4px solid white;
-    width: 600px;
-    height: 100px;
+    border: 3px solid rgba(255,255,255,0.3);
+    width: 90%;
+    max-width: 500px;
+    min-height: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 40px auto;
-    font-weight: 900;
-    background: rgba(0,0,0, 0.1);
+    margin: 30px auto;
+    font-weight: 700;
+    font-size: 28px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
 }
 
 .suhoorContainer, .iftarContainer{
-    border: 5px solid white;
-    width: 200px;
+    border: 3px solid rgba(255,255,255,0.3);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 40px;
-    font-weight: 700;
-    font-size: 30px;
+    padding: 30px 20px;
+    font-weight: 600;
+    font-size: 24px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.suhoorContainer:hover, .iftarContainer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
 .suhoorContainer>div:first-child, .iftarContainer>div:first-child{
@@ -320,41 +356,72 @@ span{
     }    
 
     .ramadanContainer{
-       width: 100vw;
-       border: 0px;
-       padding: 50px 0 ;
+       width: 100%;
+       padding: 30px 15px;
+       box-sizing: border-box;
     }
 
     .ramadanContainer >div:first-child {
         font-weight: 700;
-        font-size: 25px;
+        font-size: 24px;
         text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .ramadanContainer >div:nth-child(2) {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .ramadanContainer >div:nth-child(3) {
+        font-size: 14px;
+        margin-bottom: 20px;
     }
 
     .counterContainer{
-        width: 90vw;
-        border: 0;
+        width: 100%;
+        max-width: none;
+        font-size: 20px;
+        min-height: 50px;
+        margin: 20px auto;
+        padding: 15px;
     }
 
     .fastingContainer{
         flex-direction: column;
-        gap: 20px;
-        padding: 10px 0;
+        gap: 15px;
+        padding: 20px 15px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    .mainContainer{
+    .suhoorContainer, .iftarContainer{
+        width: 100%;
+        max-width: 200px;
+        padding: 20px 15px;
+        font-size: 18px;
+        margin: 0 auto;
+    }
+
+    .athanAndImage{
+        gap: 8px;
+    }
+
+    .athanAndImage img{
+        width: 30px;
+    }
+
+    .mainContainer1{
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 
-    .masjidImage{
+    .masjidImage1{
         display: none;
     }
 
     .prayerTimesContainer, .eventsAndAnnoucementsContainer{
         width: 90vw;
-        padding-left: 20px;
-        padding-right: 20px;
         margin-bottom: 30px;
         font-size: 20px;
     }
@@ -367,10 +434,42 @@ span{
     .footerContainer{
         width: auto;
     }
+}
 
+@media only screen and (max-width: 480px) {
+    .ramadanContainer{
+        padding: 20px 10px;
+    }
 
+    .ramadanContainer >div:first-child {
+        font-size: 20px;
+    }
 
+    .ramadanContainer >div:nth-child(2) {
+        font-size: 14px;
+    }
 
+    .ramadanContainer >div:nth-child(3) {
+        font-size: 12px;
+    }
+
+    .counterContainer{
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    .fastingContainer{
+        padding: 15px 10px;
+    }
+
+    .suhoorContainer, .iftarContainer{
+        padding: 15px 10px;
+        font-size: 16px;
+    }
+
+    .athanAndImage img{
+        width: 25px;
+    }
 }
 
 

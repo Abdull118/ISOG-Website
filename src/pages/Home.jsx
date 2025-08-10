@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useCallback} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import './Home.css'
 import { fetchPrayerTimes } from '../store/slices/iqamahTimesSlice';
@@ -11,8 +11,7 @@ import phone from '../images/phone.svg'
 import pin from '../images/pin.svg'
 import masjid from '../images/masjidNight.jpeg'
 import mosqueVector from '../images/mosque.svg'
-import quran from '../images/quranVector.jpg'
-import ramadanCalendar from '../images/ramadanCalendar.jpeg'
+
 
 const Home = () => {
 
@@ -29,7 +28,7 @@ const Home = () => {
   const [currentHijriMonth, setCurrentHijriMonth] = useState()
   const [currentHijriYear, setCurrentHijriYear] = useState()
   const [currentDate, setCurrentDate] = useState()
-  const [ramadanCounter, setRamadanCounter] = useState()
+  const [greeting, setGreeting] = useState('')
 
   const getDate = () => {
     var today = new Date(),
@@ -37,41 +36,31 @@ const Home = () => {
     setCurrentDate(date)
   };
 
-  const getHijriDate = async () => {
+  const getHijriDate = useCallback(async () => {
     try {
-     const response = await fetch(`https://api.aladhan.com/v1/gToH?=${currentDate}`);
+     const response = await fetch(`https://api.aladhan.com/v1/gToH?date=${currentDate}`);
      const json = await response.json();
      setCurrentHijriDay(json.data.hijri.day)
      setCurrentHijriMonth(json.data.hijri.month.ar)
      setCurrentHijriYear(json.data.hijri.year)
+     
+     // Determine greeting based on Hijri date
+     const hijriMonth = parseInt(json.data.hijri.month.number);
+     const hijriDay = parseInt(json.data.hijri.day);
+     
+     if (hijriMonth === 9) {
+       setGreeting('Ramadan Mubarak!');
+     } else if (hijriMonth === 10 && hijriDay <= 3) {
+       setGreeting('Eid Mubarak!');
+     } else {
+       setGreeting('');
+     }
    } catch (error) {
      console.log(error)
    }
- }
+ }, [currentDate])
 
- function countdownToSundown() {
-  
-  var sundownDate = new Date(2024, 2, 10, 18, 0, 0); 
 
-  var x = setInterval(function() {
-
-      var now = new Date().getTime();
-
-      var timeRemaining = sundownDate - now;
-
-      var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-      setRamadanCounter(days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds ");
-
-      if (timeRemaining < 0) {
-          clearInterval(x);
-          console.log("Sundown has occurred.");
-      }
-  }, 1000);
-}
 
 const [prayerClasses, setPrayerClasses] = useState({
   fajr: '',
@@ -81,7 +70,7 @@ const [prayerClasses, setPrayerClasses] = useState({
   isha: '',
 });
 
-const updatePrayerClasses = () => {
+const updatePrayerClasses = useCallback(() => {
   const now = new Date();
   let newClasses = { fajr: 'defaultPrayer', dhur: 'defaultPrayer', asr: 'defaultPrayer', maghrib: 'defaultPrayer', isha: 'defaultPrayer' };
 
@@ -120,7 +109,7 @@ const updatePrayerClasses = () => {
   }
 
   setPrayerClasses(newClasses);
-};
+}, [prayerTimes]);
 
 // Function to convert 12-hour time to 24-hour format for comparison
 function convertTo24Hour(timeStr) {
@@ -144,7 +133,7 @@ useEffect(() => {
   // Set interval to continuously update the class every minute
   const interval = setInterval(updatePrayerClasses, 60000);
   return () => clearInterval(interval); // Cleanup the interval on component unmount
-}, [prayerTimes]);
+}, [prayerTimes, updatePrayerClasses]);
 
 const [announcements, setAnnouncements] = useState([])
 const getAnnouncements = async() =>{
@@ -159,16 +148,20 @@ const getAnnouncements = async() =>{
 
  useEffect(()=>{
     getDate()
-    getHijriDate()
-    countdownToSundown();
     getAnnouncements()
  }, [])
+
+ useEffect(() => {
+   if (currentDate) {
+     getHijriDate()
+   }
+ }, [currentDate])
 
 
   return (
     <div>
 
-    <div className='mainContainer'>
+    <div className='mainContainer1'>
 
       <div className='prayerTimesContainer'>
         <div className='prayerTimesTable'>
@@ -254,7 +247,7 @@ const getAnnouncements = async() =>{
         </div>
       </div>
  <div>
-        <img src={masjid} alt='' className='masjidImage'/>
+        <img src={masjid} alt='' className='masjidImage1'/>
       </div>
 
     </div>
@@ -271,10 +264,11 @@ const getAnnouncements = async() =>{
         <div>{currentHijriYear} Hijri {currentHijriDay} {currentHijriMonth}</div>
         <div>{moment().format('dddd MMMM D YYYY')}</div>
 
-        <div className='counterContainer'>
-        <div>Ramadan Mubarak!</div>
-        
-    </div>
+        {greeting && (
+          <div className='counterContainer'>
+            <div>{greeting}</div>
+          </div>
+        )}
 
 
 
@@ -284,7 +278,7 @@ const getAnnouncements = async() =>{
             <div>Suhoor</div>
 
             <div className='athanAndImage'>
-              <img src={sunrise} alt=''/>
+              <img src={sunrise} alt='Sunrise'/>
               <div>{prayerTimes.fajrAthan}</div>
             </div>
 
@@ -295,7 +289,7 @@ const getAnnouncements = async() =>{
             <div>Iftar</div>
             
             <div className='athanAndImage'>
-              <img src={sunset} alt=''/>
+              <img src={sunset} alt='Sunset'/>
               <div>{prayerTimes.maghribAthan}</div>
             </div>
             
@@ -323,7 +317,7 @@ const getAnnouncements = async() =>{
 
             <div className='contactHome'>
               <img src={pin} />
-              <div>126 Norwich St E, Guelph, ON N1E 2G7, Canada</div>
+              <a href="https://maps.google.com/?q=126+Norwich+St+E,+Guelph,+ON+N1E+2G7,+Canada" target="_blank" rel="noopener noreferrer">126 Norwich St E, Guelph, ON N1E 2G7, Canada</a>
             </div>
         </div>
      
