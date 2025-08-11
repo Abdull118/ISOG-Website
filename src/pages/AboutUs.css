@@ -152,7 +152,7 @@
 @media only screen and (max-width: 800px) {
     .mainContainer{
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 20px;
     }
 
@@ -185,7 +185,7 @@
     }
 
     .footerContainer{
-        width: auto;
+        width: 89vw;
         padding: 30px 20px;
     }
 }
