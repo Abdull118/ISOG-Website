@@ -23,7 +23,7 @@ const NavBar = () => {
 
     const getDate = () => {
         var today = new Date(),
-        date = (today.getMonth() + 1)  + '-' + today.getDate() + '-' + today.getFullYear();
+        date = (today.getDate())  + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
         setCurrentDate(date)
       };
 
@@ -35,6 +35,7 @@ const NavBar = () => {
          setCurrentHijriDay(json.data.hijri.day)
          setCurrentHijriMonth(json.data.hijri.month.ar)
          setCurrentHijriYear(json.data.hijri.year)
+         console.log(json)
        } catch (error) {
          console.log(error)
        }

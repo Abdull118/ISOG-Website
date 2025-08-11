@@ -32,7 +32,7 @@ const Home = () => {
 
   const getDate = () => {
     var today = new Date(),
-    date = (today.getMonth() + 1)  + '-' + today.getDate() + '-' + today.getFullYear();
+    date = (today.getDate())  + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
     setCurrentDate(date)
   };
 
