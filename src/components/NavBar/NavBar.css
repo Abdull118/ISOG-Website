@@ -8,7 +8,53 @@
       opacity: 1; 
       transform: translateY(0);
     }
-  }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(10, 96, 48, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(10, 96, 48, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(10, 96, 48, 0.3);
+    }
+}
 
 .header{
     display: flex;
@@ -55,15 +101,27 @@ a{
     justify-content: center;
     margin:0 10px;
     height: 80px;
-    animation: fadeInFromBottom 1s ease forwards;
+    animation: slideInFromTop 0.8s ease forwards;
     border-bottom: 0.5px solid lightgray;
- 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.navBarHeader:hover {
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
 }
 
 .mosqueLogo img{
     width: 55px;
     height: 50px;
-    position: relative; 
+    position: relative;
+    transition: all 0.3s ease;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.mosqueLogo img:hover {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 4px 8px rgba(10, 96, 48, 0.3));
 }
 
 .navBarHeader ul{
@@ -78,11 +136,52 @@ a{
 
 .navBarHeader ul li{
     cursor: pointer;
+    position: relative;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    overflow: hidden;
 }
 
-.navBarHeader ul li:hover{
-    border-bottom: 3px solid rgb(10, 96, 48);
- 
+.navBarHeader ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(10, 96, 48, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.navBarHeader ul li:hover::before {
+    left: 100%;
+}
+
+.navBarHeader ul li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #CDAC2F, rgb(10, 96, 48));
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.navBarHeader ul li:hover::after {
+    width: 100%;
+}
+
+.navBarHeader ul li:hover {
+    transform: translateY(-2px);
+    color: rgb(10, 96, 48);
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(10, 96, 48, 0.2);
+    box-shadow: 0 4px 15px rgba(10, 96, 48, 0.15);
 }
 .mosqueName{
     font-size: 24px;
@@ -91,25 +190,48 @@ a{
 .donateBtn{
     border: 0;
     border-radius: 15px;
-    padding: 15px;
-    background-color: rgb(10, 96, 48);
-    transition: background-color 0.3s ease;
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #CDAC2F, rgb(10, 96, 48));
+    transition: all 0.3s ease;
     color: white;
     display: flex;
     font-size: 20px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(10, 96, 48, 0.3);
+}
+
+.donateBtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.donateBtn:hover::before {
+    left: 100%;
 }
 
 .donateBtn a {
     color: white;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .donateBtn:hover{
-    background-color: #CDAC2F;
-    border-bottom: 0px !important;
+    background: linear-gradient(135deg, rgb(10, 96, 48), #CDAC2F);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(10, 96, 48, 0.4);
+    animation: glow 1.5s ease-in-out infinite;
 }
 
 
@@ -196,10 +318,12 @@ a{
         position: absolute;
         z-index: 10;
         top: 0;
-        background-color: white;
+        background: linear-gradient(135deg, white, #f8f9fa);
         right: 0;
         width: 70vw;
-        animation: slideInFromRight 1s ease forwards;
+        animation: slideInFromRight 0.6s ease forwards;
+        box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+        backdrop-filter: blur(10px);
     }
 
     .donateBtn{
@@ -212,20 +336,73 @@ a{
         list-style: none;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
         font-size: 20px;
+        padding: 20px;
+    }
+
+    .mobileNavOpen ul li {
+        padding: 15px 20px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(10, 96, 48, 0.1);
+    }
+
+    .mobileNavOpen ul li::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(10, 96, 48, 0.1), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .mobileNavOpen ul li:hover::before {
+        left: 100%;
+    }
+
+    .mobileNavOpen ul li:hover {
+        transform: translateX(10px);
+        background: rgba(10, 96, 48, 0.1);
+        box-shadow: 0 4px 15px rgba(10, 96, 48, 0.2);
+    }
+
+    .mobileNavOpen ul li a {
+        color: rgb(10, 96, 48);
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .mobileNavOpen ul li:hover a {
+        color: rgb(10, 96, 48);
+        text-shadow: 0 2px 4px rgba(10, 96, 48, 0.2);
     }
 
     .closeOutModal{
         margin-top: 20px;
         margin-left: 10px;
         font-family: Arial, Helvetica, sans-serif;
-        background-color: rgb(10, 96, 48);
+        background: linear-gradient(135deg, #CDAC2F, rgb(10, 96, 48));
         width: 5vw;
         text-align: center;
         border-radius: 10px;
         color: white;
-        box-shadow: 0px 0px 10px  0px rgba(0,0,0,.1);
+        box-shadow: 0 4px 15px rgba(10, 96, 48, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        padding: 8px;
+    }
+
+    .closeOutModal:hover {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 6px 20px rgba(10, 96, 48, 0.4);
+        animation: pulse 1s ease-in-out;
     }
 
     .calendarAndCountDownContainer{
