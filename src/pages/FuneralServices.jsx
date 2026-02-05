@@ -47,6 +47,7 @@ const FuneralServices = () => {
                 <div className='contactItem'>
                   <img src={phone} alt='Phone'/>
                   <a href='tel:+15198039245'>+1 (519) 803-9245</a>
+                  <a href='tel:+15193622582'>+1 (519)362-2582</a>
                 </div>
                 <div className='contactItem'>
                   <img src={mail} alt='Email'/>
@@ -110,6 +111,10 @@ const FuneralServices = () => {
           <div className='contactHome'>
             <img src={phone} alt='Phone'/>
             <a href='tel:+15198039245'>+1 (519)803-9245</a>
+          </div>
+          <div className='contactHome'>
+            <img src={phone} alt='Phone'/>
+            <a href='tel:+15193622582'>+1 (519)362-2582</a>
           </div>
 
           <div className='contactHome'>

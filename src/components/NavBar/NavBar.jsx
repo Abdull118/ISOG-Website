@@ -171,6 +171,12 @@ const NavBar = () => {
                     <div className='contactNavBar'>
                         <img src={phone} alt=''/>
                         <a href='tel:+15198039245'>+1 (519)803-9245</a>
+                        
+                    </div>
+                    <div className='contactNavBar'>
+                        <img src={phone} alt=''/>
+                        <a href='tel:+15193622582'>+1 (519)362-2582</a>
+                        
                     </div>
         
                 </div>

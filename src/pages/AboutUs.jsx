@@ -79,6 +79,10 @@ const AboutUs = () => {
             <img src={phone} alt='Phone'/>
             <a href='tel:+15198039245'>+1 (519)803-9245</a>
           </div>
+          <div className='contactHome'>
+            <img src={phone} alt='Phone'/>
+            <a href='tel:+15193622582'>+1 (519)362-2582</a>
+          </div>
 
           <div className='contactHome'>
             <img src={pin} alt='Location' />
