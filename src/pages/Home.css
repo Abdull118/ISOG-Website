@@ -27,6 +27,30 @@
     }
 }
 
+.seasonalBanner{
+    width: 100%;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: clamp(24px, 4vw, 44px);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    animation: fadeInFromBottom 0.7s ease forwards;
+}
+
+.seasonalBanner--ramadan{
+    color: white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    background: linear-gradient(90deg, #0a5e31 0%, #178246 50%, #0a5e31 100%);
+    box-shadow: 0 8px 24px rgba(10, 96, 48, 0.3);
+}
+
+.seasonalBanner--eid{
+    color: #0a5e31;
+    text-shadow: 0 1px 4px rgba(255,255,255,0.45);
+    background: linear-gradient(90deg, #f4e4a8 0%, #ecd37a 50%, #f4e4a8 100%);
+    box-shadow: 0 8px 24px rgba(160, 126, 20, 0.22);
+}
+
 .mainContainer1{
     display: flex;
     flex-direction: row ;
@@ -51,7 +75,7 @@
 }
 
 .prayerTimesTable{
-    background-color: white;
+    
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -334,33 +358,121 @@ span{
 }
 
 .ramadanCalendarContainer{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center; 
-    object-fit: cover;
-    font-size: 50px;
-    margin-top: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-bottom: 10px;
-    color: rgb(10, 96, 48); 
-    border: 7px solid #CDAC2F;    
+    position: relative;
+    width: min(1200px, 95vw);
+    margin: 20px auto;
+    padding: 42px 36px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: linear-gradient(130deg, #f9fff8 0%, #eef9f1 55%, #f6f3e6 100%);
+    border: 2px solid rgba(205, 172, 47, 0.55);
+    box-shadow: 0 22px 45px rgba(11, 64, 36, 0.12);
+}
+
+.ramadanCalendarContainer::before{
+    content: "";
+    position: absolute;
+    right: -110px;
+    top: -120px;
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(205,172,47,0.18) 0%, rgba(205,172,47,0) 70%);
+    pointer-events: none;
+}
+
+.ramadanCalendarHeader{
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.ramadanCalendarBadge{
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background-color: rgba(10, 96, 48, 0.12);
+    border: 1px solid rgba(10, 96, 48, 0.2);
+    color: rgb(10, 96, 48);
+    margin-bottom: 14px;
+}
+
+.ramadanCalendarHeader h2{
+    margin: 0;
+    color: rgb(10, 96, 48);
+    font-size: clamp(30px, 4.2vw, 54px);
+    line-height: 1.05;
+}
+
+.ramadanCalendarHeader p{
+    margin: 14px auto 0;
+    max-width: 720px;
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: 1.45;
+    color: rgba(10, 96, 48, 0.85);
+}
+
+.ramadanCalendarFrame{
+    position: relative;
+    z-index: 1;
+    width: min(940px, 100%);
+    margin: 0 auto;
+    padding: 16px;
+    border-radius: 20px;
+    background: linear-gradient(to bottom right, rgba(255,255,255,0.95), rgba(255,255,255,0.75));
+    border: 1px solid rgba(10, 96, 48, 0.15);
+    box-shadow: 0 14px 38px rgba(10, 96, 48, 0.18);
 }
 
 .ramadanCalendarContainer img{
+    display: block;
+    width: 100%;
+    border-radius: 12px;
     object-fit: cover;
-    margin: 0 auto;
-    width: 40vw;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.ramadanCalendarFrame:hover img{
+    transform: scale(1.01);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+.ramadanCalendarDownloadBtn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 18px auto 0;
+    padding: 12px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, rgb(10, 96, 48), rgb(14, 122, 61));
+    border: 1px solid rgba(205, 172, 47, 0.85);
+    box-shadow: 0 10px 20px rgba(10, 96, 48, 0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ramadanCalendarDownloadBtn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 14px 24px rgba(10, 96, 48, 0.32);
 }
 @media only screen and (max-width: 800px) {
-
-    .ramadanCalendarContainer{
-        font-size: 30px;
+    .seasonalBanner{
+        padding: 10px 12px;
     }
 
-    .ramadanCalendarContainer img{
-        width: 95vw;
+    .ramadanCalendarContainer{
+        width: 96vw;
+        padding: 30px 16px;
+        border-radius: 20px;
+        margin-top: 8px;
     }    
 
     .ramadanContainer{
@@ -430,13 +542,53 @@ span{
 
     .prayerTimesContainer, .eventsAndAnnoucementsContainer{
         width: 90vw;
-        margin-bottom: 30px;
+        margin-bottom: 18px;
         font-size: 20px;
     }
 
     .prayerTimesTable{
+        width: 100%;
         padding-left: 0;
+        padding-right: 0;
         font-size: 20px;
+    }
+
+    .prayerTableHomePage th, .prayerTableHomePage td{
+        padding: 10px 6px;
+    }
+
+    .jummahInfoContainer{
+        margin-top: 14px;
+        padding: 12px 10px;
+        height: auto;
+        gap: 10px;
+    }
+
+    .jummahInfoHeader{
+        gap: 6px;
+    }
+
+    .jummahInfoHeader img{
+        width: 36px;
+    }
+
+    .jummahInfoHeader div{
+        width: auto;
+        margin-left: 0;
+        font-size: 18px;
+    }
+
+    .jummahInfo{
+        font-size: 18px;
+        line-height: 1.25;
+    }
+
+    .jummahInfo div{
+        white-space: nowrap;
+    }
+
+    .eventsAndAnnoucementsContainer{
+        gap: 36px;
     }
 
     .footerContainer{
@@ -445,6 +597,47 @@ span{
 }
 
 @media only screen and (max-width: 480px) {
+    .ramadanCalendarBadge{
+        font-size: 11px;
+        letter-spacing: 0.05em;
+    }
+
+    .ramadanCalendarHeader h2{
+        font-size: clamp(24px, 7vw, 30px);
+    }
+
+    .ramadanCalendarHeader p{
+        font-size: 14px;
+    }
+
+    .ramadanCalendarFrame{
+        padding: 10px;
+        border-radius: 14px;
+    }
+
+    .ramadanCalendarDownloadBtn{
+        width: 100%;
+        max-width: 330px;
+        font-size: 15px;
+    }
+
+    .prayerTimesContainer, .eventsAndAnnoucementsContainer{
+        width: 94vw;
+        margin-bottom: 14px;
+    }
+
+    .prayerTableHomePage th, .prayerTableHomePage td{
+        padding: 8px 4px;
+    }
+
+    .jummahInfoHeader div{
+        font-size: 16px;
+    }
+
+    .jummahInfo{
+        font-size: 16px;
+    }
+
     .ramadanContainer{
         padding: 20px 10px;
     }
@@ -487,6 +680,3 @@ span{
 
 
   
-
-
-

@@ -11,6 +11,21 @@ import phone from '../images/phone.svg'
 import pin from '../images/pin.svg'
 import masjid from '../images/masjidNight.jpeg'
 import mosqueVector from '../images/mosque.svg'
+import ramadanCalendar from '../images/ramadanCalendar26.jpg'
+
+const RAMADAN_CALENDAR_DRIVE_URL = 'https://drive.google.com/uc?export=download&id=1puLtEVF7XMUdiM7rUwbBnLP2fmeoWtgT'
+
+const getSeasonalGreeting = (hijriMonth, hijriDay) => {
+  if (hijriMonth === 9) {
+    return { message: 'Ramadan Mubarak!', type: 'ramadan' };
+  }
+
+  if (hijriMonth === 10 && hijriDay <= 3) {
+    return { message: 'Eid Mubarak!', type: 'eid' };
+  }
+
+  return { message: '', type: '' };
+};
 
 
 const Home = () => {
@@ -29,6 +44,7 @@ const Home = () => {
   const [currentHijriYear, setCurrentHijriYear] = useState()
   const [currentDate, setCurrentDate] = useState()
   const [greeting, setGreeting] = useState('')
+  const [greetingType, setGreetingType] = useState('')
 
   const getDate = () => {
     var today = new Date(),
@@ -47,14 +63,10 @@ const Home = () => {
      // Determine greeting based on Hijri date
      const hijriMonth = parseInt(json.data.hijri.month.number);
      const hijriDay = parseInt(json.data.hijri.day);
-     
-     if (hijriMonth === 9) {
-       setGreeting('Ramadan Mubarak!');
-     } else if (hijriMonth === 10 && hijriDay <= 3) {
-       setGreeting('Eid Mubarak!');
-     } else {
-       setGreeting('');
-     }
+     const seasonalGreeting = getSeasonalGreeting(hijriMonth, hijriDay);
+
+     setGreeting(seasonalGreeting.message);
+     setGreetingType(seasonalGreeting.type);
    } catch (error) {
      console.log(error)
    }
@@ -155,11 +167,16 @@ const getAnnouncements = async() =>{
    if (currentDate) {
      getHijriDate()
    }
- }, [currentDate])
+ }, [currentDate, getHijriDate])
 
 
   return (
     <div>
+    {greeting && (
+      <div className={`seasonalBanner seasonalBanner--${greetingType}`}>
+        {greeting}
+      </div>
+    )}
 
     <div className='mainContainer1'>
 
@@ -252,11 +269,27 @@ const getAnnouncements = async() =>{
 
     </div>
 
-    {/* <div className='ramadanCalendarContainer'>
+    <section className='ramadanCalendarContainer'>
+      <div className='ramadanCalendarHeader'>
+        <div className='ramadanCalendarBadge'>Ramadan 1447 AH</div>
+        <h2>2026 Ramadan Calendar</h2>
+        <p>
+          Daily fasting schedule for Guelph. Save this calendar for quick Suhoor
+          and Iftar reference throughout the month.
+        </p>
+      </div>
 
-      <div>2025 Ramadan Calendar </div>
-      <img src={ramadanCalendar} />
-    </div> */}
+      <div className='ramadanCalendarFrame'>
+        <img src={ramadanCalendar} alt='2026 Ramadan fasting calendar for Guelph' />
+      </div>
+      <a
+        className='ramadanCalendarDownloadBtn'
+        href={RAMADAN_CALENDAR_DRIVE_URL}
+        download='ramadanCalendar.pdf'
+      >
+        Download Ramadan Calendar
+      </a>
+    </section>
 
 
       <div className='ramadanContainer'>
