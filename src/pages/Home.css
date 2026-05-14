@@ -37,12 +37,12 @@
     animation: fadeInFromBottom 0.7s ease forwards;
 }
 
-.seasonalBanner--ramadan{
+/* .seasonalBanner--ramadan{
     color: white;
     text-shadow: 0 2px 8px rgba(0,0,0,0.2);
     background: linear-gradient(90deg, #0a5e31 0%, #178246 50%, #0a5e31 100%);
     box-shadow: 0 8px 24px rgba(10, 96, 48, 0.3);
-}
+} */
 
 .seasonalBanner--eid{
     color: #0a5e31;
@@ -357,7 +357,7 @@ span{
     border-bottom: 1px dashed lightGray;
 }
 
-.ramadanCalendarContainer{
+/* .ramadanCalendarContainer{
     position: relative;
     width: min(1200px, 95vw);
     margin: 20px auto;
@@ -462,18 +462,18 @@ span{
 .ramadanCalendarDownloadBtn:hover{
     transform: translateY(-2px);
     box-shadow: 0 14px 24px rgba(10, 96, 48, 0.32);
-}
+} */
 @media only screen and (max-width: 800px) {
     .seasonalBanner{
         padding: 10px 12px;
     }
 
-    .ramadanCalendarContainer{
+    /* .ramadanCalendarContainer{
         width: 96vw;
         padding: 30px 16px;
         border-radius: 20px;
         margin-top: 8px;
-    }    
+    } */
 
     .ramadanContainer{
        width: 100%;
@@ -597,7 +597,7 @@ span{
 }
 
 @media only screen and (max-width: 480px) {
-    .ramadanCalendarBadge{
+    /* .ramadanCalendarBadge{
         font-size: 11px;
         letter-spacing: 0.05em;
     }
@@ -619,7 +619,7 @@ span{
         width: 100%;
         max-width: 330px;
         font-size: 15px;
-    }
+    } */
 
     .prayerTimesContainer, .eventsAndAnnoucementsContainer{
         width: 94vw;

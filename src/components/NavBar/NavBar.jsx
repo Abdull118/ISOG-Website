@@ -145,8 +145,8 @@ const NavBar = () => {
                 
                 {/* Link for Ramadan Calendar Download from Google Drive: */}
 
-                <li><a href="https://drive.google.com/uc?export=download&id=1puLtEVF7XMUdiM7rUwbBnLP2fmeoWtgT" download="ramadanCalendar.pdf">
-                        Ramadan Calendar</a></li>
+                {/* <li><a href="https://drive.google.com/uc?export=download&id=1puLtEVF7XMUdiM7rUwbBnLP2fmeoWtgT" download="ramadanCalendar.pdf">
+                        Ramadan Calendar</a></li> */}
                 <li className='donateBtn'><a onClick={handleCopyFunction}>Donate via eTransfer</a></li>
             </ul>
             </div>
@@ -196,8 +196,8 @@ const NavBar = () => {
                         
                         {/* Link for Ramadan Calendar Download from Google Drive: */}
 
-                        <li><a href="https://drive.google.com/uc?export=download&id=1puLtEVF7XMUdiM7rUwbBnLP2fmeoWtgT" download="ramadanCalendar.pdf">
-                        Ramadan Calendar</a></li>
+                        {/* <li><a href="https://drive.google.com/uc?export=download&id=1puLtEVF7XMUdiM7rUwbBnLP2fmeoWtgT" download="ramadanCalendar.pdf">
+                        Ramadan Calendar</a></li> */}
                         <li className='donateBtn'><a onClick={handleCopyFunction}>Donate via eTransfer</a></li>
                     </ul>
         

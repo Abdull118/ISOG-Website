@@ -11,9 +11,9 @@ import phone from '../images/phone.svg'
 import pin from '../images/pin.svg'
 import masjid from '../images/masjidNight.jpeg'
 import mosqueVector from '../images/mosque.svg'
-import ramadanCalendar from '../images/ramadanCalendar26.jpg'
+// import ramadanCalendar from '../images/ramadanCalendar26.jpg'
 
-const RAMADAN_CALENDAR_DRIVE_URL = 'https://drive.google.com/uc?export=download&id=1puLtEVF7XMUdiM7rUwbBnLP2fmeoWtgT'
+// const RAMADAN_CALENDAR_DRIVE_URL = 'https://drive.google.com/uc?export=download&id=1puLtEVF7XMUdiM7rUwbBnLP2fmeoWtgT'
 
 const getSeasonalGreeting = (hijriMonth, hijriDay) => {
   if (hijriMonth === 9) {
@@ -269,7 +269,7 @@ const getAnnouncements = async() =>{
 
     </div>
 
-    <section className='ramadanCalendarContainer'>
+    {/* <section className='ramadanCalendarContainer'>
       <div className='ramadanCalendarHeader'>
         <div className='ramadanCalendarBadge'>Ramadan 1447 AH</div>
         <h2>2026 Ramadan Calendar</h2>
@@ -289,7 +289,7 @@ const getAnnouncements = async() =>{
       >
         Download Ramadan Calendar
       </a>
-    </section>
+    </section> */}
 
 
       <div className='ramadanContainer'>
